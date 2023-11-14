@@ -16,5 +16,5 @@ public partial class User
     public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; } = new List<ShoppingCartItem>();
 
     public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
-    public object ShoppingCartItem { get; internal set; }
+ 
 }

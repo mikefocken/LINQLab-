@@ -9,12 +9,10 @@ using System.Diagnostics.Metrics;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace LINQLab
-{ 
+{
     class Problems
     {
         private EcommerceContext _context;
-
-        public object ShoppingCartItems { get; private set; }
 
         public Problems()
         {
@@ -33,7 +31,7 @@ namespace LINQLab
 
             // <><><><><><><><> R Actions (Read) with Foreign Keys <><><><><><><><><>
             //RDemoThree();
-            RProblemSix();
+            //RProblemSix();
             //RProblemSeven();
             //RProblemEight();
 
@@ -199,49 +197,56 @@ namespace LINQLab
         //    }
 
         //} 
-        public void RProblemSix()
-        {
-            //// Write a LINQ query that retrieves all of the products in the shopping cart of the user who has the email "afton@gmail.com".
-            //// Then print the product's name, price, and quantity to the console.
+        //public void RProblemSix()
+        //{
+        //    //// Write a LINQ query that retrieves all of the products in the shopping cart of the user who has the email "afton@gmail.com".
+        //    //// Then print the product's name, price, and quantity to the console.
 
-            var ShoppingCartList = _context.ShoppingCartItems.Include(ur => ur.User).Include(ur => ur.Product) 
-                .Where(ur => ur.User.Email == "afton@gmail.com");
+        //    var ShoppingCartList = _context.ShoppingCartItems.Include(ur => ur.User).Include(ur => ur.Product)
+        //    .Where(ur => ur.User.Email == "afton@gmail.com").ToList();
 
-            foreach (var item in ShoppingCartList)
-            {
-                Console.WriteLine($"{ShoppingCartItems}");  
-            }
-          
-        }
+        //    foreach (var item in ShoppingCartList)
+        //    {
+        //        Console.WriteLine($"Name:  {item.Product.Name},Price:  {item.Product.Price} Quantity:  {item.Quantity}.");
+
+        //    }
+
+        //}
+
+
         /*
-            Expected Result:
-            Name: Freedom from the Known - Jiddu Krishnamurti
-            Price: $14.99 
-            Quantity: 1
+           Expected Result:
+        Name: Freedom from the Known - Jiddu Krishnamurti
+        Price: $14.99 
+        Quantity: 1
 
-            Name: Ball Mason Jar-32 oz.
-            Price: $8.85
-            Quantity: 10
+        Name: Ball Mason Jar-32 oz.
+        Price: $8.85
+        Quantity: 10
 
-            Name: Catan The Board Game
-            Price: $43.67
-            Quantity: 1
+        Name: Catan The Board Game
+        Price: $43.67
+        Quantity: 1
 
-            Name: Nintendo Switch
-            Price: $299.00
-            Quantity: 1
-        */
+        Name: Nintendo Switch
+        Price: $299.00
+        Quantity: 1
+            */
 
         //public void RProblemSeven()
         //{
-        //    // Write a LINQ query that retrieves all of the products in the shopping cart of the user who has the email "oda@gmail.com" and returns the sum of all of the products prices.
-        //    // HINT: End of query will be: .Select(sc => sc.Product.Price).Sum();
-        //    // Print the total of the shopping cart to the console.
-        //    // Remember to break the problem down and take it one step at a time!
+        //    //    // Write a LINQ query that retrieves all of the products in the shopping cart of the user who has the email "oda@gmail.com" and returns the sum of all of the products prices.
+        //    //    // HINT: End of query will be: .Select(sc => sc.Product.Price).Sum();
+        //    //    // Print the total of the shopping cart to the console.
+        //    //    // Remember to break the problem down and take it one step at a time!
 
+        //    var TotalOfCart = _context.ShoppingCartItems.Include(ur => ur.User).Include(ur => ur.Product)
+        //.Where(ur => ur.User.Email == "oda@gmail.com").Select(sc => sc.Product.Price).Sum();
+
+        //    Console.WriteLine($"Total {TotalOfCart}");
 
         //}
-        ///*
+         ///*
         // Total: $715.34
         // */
 
@@ -408,11 +413,7 @@ namespace LINQLab
         // -Add a product to the shopping cart (incrementing quantity if that product is already in their shopping cart)
         // -Remove a product from their shopping cart
         // 3. If the user does not successfully sign in
-        // -Display "Invalid Email or Password"
         // -Re-prompt the user for credentials
 
-        //}
-
-
     }
-}
+}      
